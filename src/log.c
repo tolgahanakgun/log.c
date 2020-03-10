@@ -43,7 +43,7 @@ static const char *level_names[] = {
 
 #ifdef LOG_USE_COLOR
 static const char *level_colors[] = {
-  "\x1b[94m", "\x1b[36m", "\x1b[32m", "\x1b[33m", "\x1b[31m", "\x1b[35m"
+  "\x1b[92;1m", "\x1b[36;1m", "\x1b[32;1m", "\x1b[33;1m", "\x1b[31;1m", "\x1b[35;1m"
 };
 #endif
 
@@ -106,7 +106,7 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
     buf[strftime(buf, sizeof(buf), "%H:%M:%S", lt)] = '\0';
 #ifdef LOG_USE_COLOR
     fprintf(
-      stderr, "%s %s%-5s\x1b[0m \x1b[90m%s:%d:\x1b[0m ",
+      stderr, "%s %s%-5s\x1b[0m \x1b[38;5;248m%s:%d:\x1b[0m ",
       buf, level_colors[level], level_names[level], file, line);
 #else
     fprintf(stderr, "%s %-5s %s:%d: ", buf, level_names[level], file, line);
