@@ -98,12 +98,16 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
   /* Get current time */
   time_t t = time(NULL);
   struct tm *lt = localtime(&t);
+  /* Get milliseconds */
+  struct timespec tp;
+  clock_gettime(CLOCK_MONOTONIC_RAW, &tp);
 
   /* Log to stderr */
   if (!L.quiet) {
     va_list args;
     char buf[16];
-    buf[strftime(buf, sizeof(buf), "%H:%M:%S", lt)] = '\0';
+    // snprintf automatically add null to the end of the buf
+    snprintf(buf+strftime(buf, sizeof(buf), "%H:%M:%S", lt), 5, ".%03u", tp.tv_nsec);
 #ifdef LOG_USE_COLOR
     fprintf(
       stderr, "%s %s%-5s\x1b[0m \x1b[38;5;248m%s:%d:\x1b[0m ",
