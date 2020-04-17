@@ -27,7 +27,7 @@ log_trace("Hello %s", "world")
 Resulting in a line with the given format printed to stderr:
 
 ```
-20:18:26 TRACE src/main.c:11: Hello world
+20:18:26.192 TRACE main.c:11: Hello world
 ```
 
 
