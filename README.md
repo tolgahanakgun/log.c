@@ -1,7 +1,7 @@
 # log.c
 A simple logging library implemented in C99
 
-![screenshot](https://user-images.githubusercontent.com/8354277/79572536-caf22180-80c5-11ea-9b64-c1217ca4ea66.PNG)
+![screenshot](https://user-images.githubusercontent.com/8354277/79601120-f5a59f80-80f0-11ea-9267-1ff531f73c5c.PNG)
 
 
 ## Usage
